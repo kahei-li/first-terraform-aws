@@ -1,7 +1,6 @@
 .git/
-.gitignore/
 .terraform
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
-.vscode
+*.tfvars

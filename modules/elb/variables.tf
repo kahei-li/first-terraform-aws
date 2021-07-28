@@ -3,21 +3,25 @@ variable "environment" {
 }
 
 variable "vpc_id" {
-  description = "Interpolating vpc_id passed in from root module"
+  description = "Interpolating vpc_id passed in via root module from vpc module"
 }
 
-variable "ingress_cidr" {
-  default = "0.0.0.0/0"
+variable "instance_1_id" {
+    description = "Interpolating instances_1_id output via root module from app module"
 }
 
-variable "outgress_cidr" {
-  default = "0.0.0.0/0"
+variable "instance_2_id" {
+    description = "Interpolating instances_2_id output via root module from app module"
 }
 
-variable "instances_ids" {
-  description = "Interpolating instances_ids output from app module from root module"
+variable "subnet_a_id" {
+    description = "Interpolating subnets_a_id output via root module from vpc module"
 }
 
-variable "subnets_ids" {
-  description = "Interpolating subnets_ids output from app module from root module"
+variable "subnet_b_id" {
+    description = "Interpolating subnets_b_id output via root module from vpc module"
+}
+
+variable "elb_sg_id" {
+    description = "Interpolating elb_sg_id output via root module from sg module"
 }
