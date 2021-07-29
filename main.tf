@@ -64,4 +64,5 @@ module "app" {
   public_key_path = var.public_key_path
   instance_type = var.instance_type
   ami = var.ami
+  app_lb_target_group_http_arn = module.elb.app_lb_target_group_http_arn
 }

@@ -40,3 +40,15 @@ resource "aws_instance" "app_2" {
     Environment = var.environment
   }
 }
+
+resource "aws_lb_target_group_attachment" "app_lb_target_group_attachment_1" {
+  target_group_arn = var.app_lb_target_group_http_arn
+  target_id = aws_instance.app_1.id
+  port = 80
+}
+
+resource "aws_lb_target_group_attachment" "app_lb_target_group_attachment_2" {
+  target_group_arn = var.app_lb_target_group_http_arn
+  target_id = aws_instance.app_2.id
+  port = 80
+}

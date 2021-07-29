@@ -37,3 +37,7 @@ variable "subnet_a_id" {
 variable "subnet_b_id" {
   description = "Interpolating subnet_b_id passed in via root module from vpc module"
 }
+
+variable "app_lb_target_group_http_arn" {
+  description = "Interpolating app lb target group arn passed in via root module from elb module"
+}
