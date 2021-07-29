@@ -13,3 +13,7 @@ variable "vpc_cidr_block" {
 variable "developer_vm_cidr" {
   description = "Interpolating developer vm cidr from root module"
 }
+
+variable "elb_ingress_cidr_http" {
+  description = "Interpolating elb ingress cidr http passed in from root module."
+}

@@ -37,6 +37,7 @@ module "sg" {
   # passing in default variable or from tfvars
   environment = var.environment
   developer_vm_cidr = var.developer_vm_cidr
+  elb_ingress_cidr_http = var.elb_ingress_cidr_http
 }
 
 module "elb" {

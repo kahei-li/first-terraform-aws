@@ -45,8 +45,13 @@ variable "developer_vm_cidr" {
   description = "Specify developer vm ip in cidr block to apply whitelisting"
 }
 
+variable "elb_ingress_cidr_http" {
+  description = "Specify elb ingress cidr for http port. Otherwise default for this is 0.0.0.0/0 i.e. publicly available via the internet"
+  default = "0.0.0.0/0"
+}
+
 # elb module variables requiring tfvars input
-# currently none
+# none
 
 # app module variables reuiring tfvars input
 variable "key_name" {
