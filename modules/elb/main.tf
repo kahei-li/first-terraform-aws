@@ -1,6 +1,6 @@
 # ELB | Create an elastic application load-balancer
 resource "aws_lb" "app_elb" {
-  name = "app-elb-${var.environment}"
+  name = "app-elb"
   internal = false
   subnets = [var.subnet_a_id, var.subnet_b_id]
   security_groups = [var.elb_sg_id]
@@ -49,18 +49,18 @@ resource "aws_lb_listener" "app_lb_listener_http" {
 }
 
 # LISTENER | Create a HTTPS listener
-resource "aws_lb_listener" "app_lb_listener_https" {
-  load_balancer_arn = aws_lb.app_elb.arn
-  port = "443"
-  protocol = "HTTPS"
-  ssl_policy = ""
-  certificate_arn = ""
+# resource "aws_lb_listener" "app_lb_listener_https" {
+#   load_balancer_arn = aws_lb.app_elb.arn
+#   port = "443"
+#   protocol = "HTTPS"
+#   ssl_policy = ""
+#   certificate_arn = ""
 
-  default_action {
-    type = "forward"
-    target_group_arn = aws_lb_target_group.app_lb_target_group_http.arn
-  }
-}
+#   default_action {
+#     type = "forward"
+#     target_group_arn = aws_lb_target_group.app_lb_target_group_http.arn
+#   }
+# }
 
 # # ELB listener rule - forward and host weighting 50:50 
 # resource "aws_lb_listener_rule" "host_based_routing_http" {
