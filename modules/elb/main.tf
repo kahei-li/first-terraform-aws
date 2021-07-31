@@ -48,6 +48,7 @@ resource "aws_lb_listener" "app_lb_listener_http" {
   }
 }
 
+# -------HTTPS and Cert not yet implemented----------------
 # LISTENER | Create a HTTPS listener
 # resource "aws_lb_listener" "app_lb_listener_https" {
 #   load_balancer_arn = aws_lb.app_elb.arn

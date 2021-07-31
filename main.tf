@@ -40,17 +40,18 @@ module "sg" {
   elb_ingress_cidr_http = var.elb_ingress_cidr_http
 }
 
-module "elb" {
-  source = "./modules/elb"
-  vpc_id = module.vpc.vpc_id
-  instance_1_id = module.app.instance_1_id
-  instance_2_id = module.app.instance_2_id
-  subnet_a_id = module.vpc.subnet_a_id
-  subnet_b_id = module.vpc.subnet_b_id
-  elb_sg_id = module.sg.elb_sg_id
-  # passing in default variable or from tfvars
-  environment = var.environment
-}
+####### Disabling elb during development    ## also comment out app_lb_target_group_http_arn passed into app from elb module  ## also comment out target group attacment resources in app module  # also comment out app/variable app_lb_target_group_http_arn
+# module "elb" {
+#   source = "./modules/elb"
+#   vpc_id = module.vpc.vpc_id
+#   instance_1_id = module.app.instance_1_id
+#   instance_2_id = module.app.instance_2_id
+#   subnet_a_id = module.vpc.subnet_a_id
+#   subnet_b_id = module.vpc.subnet_b_id
+#   elb_sg_id = module.sg.elb_sg_id
+#   # passing in default variable or from tfvars
+#   environment = var.environment
+# }
 
 module "app" {
   source = "./modules/app"
@@ -63,7 +64,22 @@ module "app" {
   environment = var.environment
   key_name = var.key_name
   public_key_path = var.public_key_path
-  instance_type = var.instance_type
+  app_instance_type = var.app_instance_type
   ami = var.ami
-  app_lb_target_group_http_arn = module.elb.app_lb_target_group_http_arn
+  # app_lb_target_group_http_arn = module.elb.app_lb_target_group_http_arn
+}
+
+module "api" {
+  source = "./modules/api"
+  vpc_id = module.vpc.vpc_id
+  developer_sg_id = module.sg.developer_sg_id
+  vpc_internal_sg_id = module.sg.vpc_internal_sg_id
+  subnet_a_id = module.vpc.subnet_a_id
+  subnet_b_id = module.vpc.subnet_b_id
+  # passing in default variable or from tfvars
+  environment = var.environment
+  key_name = var.key_name
+  api_instance_type = var.api_instance_type
+  ami = var.ami
+  # api_lb_target_group_http_arn = module.elb.api_lb_target_group_http_arn
 }

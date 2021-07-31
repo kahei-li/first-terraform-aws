@@ -10,11 +10,7 @@ variable "key_name" {
   description = "Interpolating key-name from root module"
 }
 
-variable "public_key_path" {
- description = "Interpolating key-path from root module"
-}
-
-variable "app_instance_type" {
+variable "api_instance_type" {
   description = "Interpolating instance type from root module"
 }
 

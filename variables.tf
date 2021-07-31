@@ -62,10 +62,15 @@ variable "public_key_path" {
  description = "key-path"
 }
 
-variable "instance_type" {
+variable "app_instance_type" {
   description = "specify instance type to deploy"
 }
 
 variable "ami" {
   description = "specify an ami number to deploy"
+}
+
+#  api module variables requiring tfvars input
+variable "api_instance_type" {
+  description = "specify instance type to deploy"
 }
