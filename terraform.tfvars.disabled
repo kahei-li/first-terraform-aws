@@ -1,6 +1,8 @@
 # tfvar variable inputs for root module     # Change terraform.tfvars.disabled to terraform.tfvars to use this file
 environment = "Development"
 region = ""
+# access_key = ""
+# secret_key = ""
 vpc_cidr_block = ""
 route_cidr_block = ""
 subnet_a_cidr_block = ""
