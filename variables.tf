@@ -74,3 +74,8 @@ variable "ami" {
 variable "api_instance_type" {
   description = "specify instance type to deploy"
 }
+
+#  db module variables requiring tfvars input
+variable "db_instance_type" {
+  description = "specify instance type to deploy"
+}

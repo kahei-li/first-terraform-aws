@@ -57,3 +57,4 @@ if not
 ## Possible Improvements
 - modify setup to be scalable e.g. deploying 1-3 instances by variable input
 - variables requiring default inputs are currently doubled up in root/variables.tf and module/variables.tf to allow tfvar inputs. Could possibly be change to avoid repeats?
+- some resources currently share the same variables e.g. app ami/ api ami / db ami. This could be improved to allow resource dependant input customisation.

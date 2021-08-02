@@ -83,3 +83,17 @@ module "api" {
   ami = var.ami
   # api_lb_target_group_http_arn = module.elb.api_lb_target_group_http_arn
 }
+
+module "db" {
+  source = "./modules/db"
+  vpc_id = module.vpc.vpc_id
+  developer_sg_id = module.sg.developer_sg_id
+  vpc_internal_sg_id = module.sg.vpc_internal_sg_id
+  subnet_a_id = module.vpc.subnet_a_id
+  subnet_b_id = module.vpc.subnet_b_id
+  # passing in default variable or from tfvars
+  environment = var.environment
+  key_name = var.key_name
+  db_instance_type = var.db_instance_type
+  ami = var.ami
+}
