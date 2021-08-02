@@ -1,0 +1,17 @@
+# tfvar variable inputs for root module     # Change terraform.tfvars.disabled to terraform.tfvars to use this file
+environment = "Development"
+region = ""
+vpc_cidr_block = ""
+route_cidr_block = ""
+subnet_a_cidr_block = ""
+subnet_b_cidr_block = ""
+subnet_a_az = ""
+subnet_b_az = ""
+developer_vm_cidr = ""  # DevOps Windows VM02 IP
+elb_ingress_cidr_http = ""
+key_name = ""
+public_key_path = ""
+app_instance_type = ""
+api_instance_type = ""
+db_instance_type = ""
+ami = ""   # RHEL-7.8_HVM_GA-20200225-x86_64-1-Hourly2-GP2 in eu-west-2
