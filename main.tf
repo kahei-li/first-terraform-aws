@@ -53,47 +53,50 @@ module "sg" {
 #   environment = var.environment
 # }
 
-module "app" {
-  source = "./modules/app"
-  vpc_id = module.vpc.vpc_id
-  developer_sg_id = module.sg.developer_sg_id
-  vpc_internal_sg_id = module.sg.vpc_internal_sg_id
-  subnet_a_id = module.vpc.subnet_a_id
-  subnet_b_id = module.vpc.subnet_b_id
-  # passing in default variable or from tfvars
-  environment = var.environment
-  key_name = var.key_name
-  public_key_path = var.public_key_path
-  app_instance_type = var.app_instance_type
-  ami = var.ami
-  # app_lb_target_group_http_arn = module.elb.app_lb_target_group_http_arn
-}
+###### Disabling app - fixing structure
+# module "app" {
+#   source = "./modules/app"
+#   vpc_id = module.vpc.vpc_id
+#   developer_sg_id = module.sg.developer_sg_id
+#   vpc_internal_sg_id = module.sg.vpc_internal_sg_id
+#   subnet_a_id = module.vpc.subnet_a_id
+#   subnet_b_id = module.vpc.subnet_b_id
+#   # passing in default variable or from tfvars
+#   environment = var.environment
+#   key_name = var.key_name
+#   public_key_path = var.public_key_path
+#   app_instance_type = var.app_instance_type
+#   ami = var.ami
+#   # app_lb_target_group_http_arn = module.elb.app_lb_target_group_http_arn
+# }
 
-module "api" {
-  source = "./modules/api"
-  vpc_id = module.vpc.vpc_id
-  developer_sg_id = module.sg.developer_sg_id
-  vpc_internal_sg_id = module.sg.vpc_internal_sg_id
-  subnet_a_id = module.vpc.subnet_a_id
-  subnet_b_id = module.vpc.subnet_b_id
-  # passing in default variable or from tfvars
-  environment = var.environment
-  key_name = var.key_name
-  api_instance_type = var.api_instance_type
-  ami = var.ami
-  # api_lb_target_group_http_arn = module.elb.api_lb_target_group_http_arn
-}
+###### Disabling api - fixing structure
+# module "api" {
+#   source = "./modules/api"
+#   vpc_id = module.vpc.vpc_id
+#   developer_sg_id = module.sg.developer_sg_id
+#   vpc_internal_sg_id = module.sg.vpc_internal_sg_id
+#   subnet_a_id = module.vpc.subnet_a_id
+#   subnet_b_id = module.vpc.subnet_b_id
+#   # passing in default variable or from tfvars
+#   environment = var.environment
+#   key_name = var.key_name
+#   api_instance_type = var.api_instance_type
+#   ami = var.ami
+#   # api_lb_target_group_http_arn = module.elb.api_lb_target_group_http_arn
+# }
 
-module "db" {
-  source = "./modules/db"
-  vpc_id = module.vpc.vpc_id
-  developer_sg_id = module.sg.developer_sg_id
-  vpc_internal_sg_id = module.sg.vpc_internal_sg_id
-  subnet_a_id = module.vpc.subnet_a_id
-  subnet_b_id = module.vpc.subnet_b_id
-  # passing in default variable or from tfvars
-  environment = var.environment
-  key_name = var.key_name
-  db_instance_type = var.db_instance_type
-  ami = var.ami
-}
+###### Disabling db - fixing structure
+# module "db" {
+#   source = "./modules/db"
+#   vpc_id = module.vpc.vpc_id
+#   developer_sg_id = module.sg.developer_sg_id
+#   vpc_internal_sg_id = module.sg.vpc_internal_sg_id
+#   subnet_a_id = module.vpc.subnet_a_id
+#   subnet_b_id = module.vpc.subnet_b_id
+#   # passing in default variable or from tfvars
+#   environment = var.environment
+#   key_name = var.key_name
+#   db_instance_type = var.db_instance_type
+#   ami = var.ami
+# }
